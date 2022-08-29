@@ -11,5 +11,6 @@ class TambahNotes : AppCompatActivity(R.layout.activity_tambah_notes) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 }
