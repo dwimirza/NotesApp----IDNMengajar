@@ -70,4 +70,17 @@
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton"
+        android:text="Add Notes"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="40dp"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
