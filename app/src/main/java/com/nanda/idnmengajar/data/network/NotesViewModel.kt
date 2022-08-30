@@ -18,7 +18,6 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getAllData(): LiveData<List<Notes>> = repository.allNotes
 
-    //funsi ini yang akang di gunakan oleh view ketika input data dan dikirimkan ke dalam repository
     fun insertData(notes: Notes) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertNotes(notes)
