@@ -3,7 +3,6 @@ package com.nanda.idnmengajar.data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nanda.idnmengajar.R
@@ -14,14 +13,13 @@ class NotesAdapter(val noteList: List<Notes>) :
     RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_item_judul, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.row_item_judul, parent, false)
         return NotesViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        val note = noteList[position]
-        holder.binding.textViewTitle.text = note.title
-        holder.binding.textViewDescription.text = note.description
+        TODO("Not yet implemented")
     }
 
     override fun getItemCount(): Int {
@@ -30,5 +28,9 @@ class NotesAdapter(val noteList: List<Notes>) :
 
     class NotesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding: RowItemJudulBinding by viewBinding()
+
+        fun bindView() {
+
+        }
     }
 }
