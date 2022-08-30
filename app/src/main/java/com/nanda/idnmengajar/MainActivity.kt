@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.sortMenu -> TODO("bikin sort by priority")
+        R.id.sortMenu -> Toast.makeText(applicationContext,"as",Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
     }
