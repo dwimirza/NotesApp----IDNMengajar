@@ -7,7 +7,7 @@ import com.nanda.idnmengajar.databinding.ActivityTambahNotesBinding
 
 class TambahNotes : AppCompatActivity(R.layout.activity_tambah_notes) {
 
-    private val binding : ActivityTambahNotesBinding by viewBinding()
+    private val binding: ActivityTambahNotesBinding by viewBinding()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
