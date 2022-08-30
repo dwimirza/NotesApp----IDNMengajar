@@ -9,17 +9,20 @@ import com.nanda.idnmengajar.R
 import com.nanda.idnmengajar.data.entity.Notes
 import com.nanda.idnmengajar.databinding.RowItemJudulBinding
 
-class NotesAdapter(val noteList: List<Notes>) :
-    RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
+class NotesAdapter(val noteList: List<Notes>) : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.row_item_judul, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_item_judul, parent, false)
         return NotesViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val note = noteList[position]
+        holder.binding.apply {
+            textViewTitle.text = note.title
+            textViewDescription.text = note.description
+        }
+
     }
 
     override fun getItemCount(): Int {
@@ -28,9 +31,5 @@ class NotesAdapter(val noteList: List<Notes>) :
 
     class NotesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding: RowItemJudulBinding by viewBinding()
-
-        fun bindView() {
-
-        }
     }
 }

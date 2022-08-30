@@ -17,8 +17,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
 
         binding.apply {
-
-
             fab.setOnClickListener {
                 val intent = Intent(this@MainActivity, TambahNotes::class.java)
                 startActivity(intent)
