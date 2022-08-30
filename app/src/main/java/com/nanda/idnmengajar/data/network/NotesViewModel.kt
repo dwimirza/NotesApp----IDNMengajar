@@ -11,7 +11,7 @@ import com.nanda.idnmengajar.room.NotesDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+class NotesViewModel(application: Application) : AndroidViewModel(application) {
 
     private val notesDao = NotesDatabase.getDatabase(application).NotesDao()
     private val repository: NotesRepository = NotesRepository(notesDao)
