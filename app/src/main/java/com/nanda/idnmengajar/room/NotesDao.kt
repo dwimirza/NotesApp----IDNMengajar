@@ -1,11 +1,9 @@
 package com.nanda.idnmengajar.room
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.nanda.idnmengajar.data.entity.Notes
 
+@Dao
 interface NotesDao {
     @Query("SELECT * FROM notes_table")
     fun getData() : List<Notes>
