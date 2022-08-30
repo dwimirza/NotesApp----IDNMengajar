@@ -1,22 +1,23 @@
 package com.nanda.idnmengajar.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.nanda.idnmengajar.data.entity.Notes
 
 @Dao
 interface NotesDao {
     @Query("SELECT * FROM notes_table")
-    fun getData() : List<Notes>
+    fun getData(): LiveData<List<Notes>>
 
     @Delete()
-    suspend fun deleteData(note : Notes)
+    suspend fun deleteData(note: Notes)
 
     @Update()
-    suspend fun updateNotes(note : Notes)
+    suspend fun updateNotes(note: Notes)
 
     @Insert
-    suspend fun insertNotes(note : Notes)
+    suspend fun insertNotes(note: Notes)
 
     @Query("SELECT * FROM notes_table WHERE id = :notesId")
-    suspend fun getDataId(notesId : Int) : Notes
+    suspend fun getDataId(notesId: Int): Notes
 }
