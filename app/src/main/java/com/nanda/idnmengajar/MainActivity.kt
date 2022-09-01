@@ -14,17 +14,16 @@ import com.nanda.idnmengajar.data.NotesAdapter
 import com.nanda.idnmengajar.data.entity.Notes
 import com.nanda.idnmengajar.data.network.NotesViewModel
 import com.nanda.idnmengajar.databinding.ActivityMainBinding
+import com.nanda.idnmengajar.utils.OnItemClickCallback
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val binding : ActivityMainBinding by viewBinding()
-    private val notesAdapter by lazy { NotesAdapter(this) }
+    private val notesAdapter by lazy { NotesAdapter() }
     private val viewModel by viewModels<NotesViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
 
         binding.apply {
             fab.setOnClickListener {
@@ -32,19 +31,19 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 startActivity(intent)
             }
 
-
             rvJudulNotes.apply {
                 viewModel.getAllData().observe(this@MainActivity){ notes ->
                     notesAdapter.setData(notes)
                 }
                 adapter = notesAdapter
                 layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL )
+                notesAdapter.onItemClickCallback(object : OnItemClickCallback {
+                    override fun onItemClicked() {
+//                        intent
+                    }
+                })
             }
         }
-
-
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

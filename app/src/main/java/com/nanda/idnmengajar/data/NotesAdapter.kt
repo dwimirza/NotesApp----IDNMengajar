@@ -8,9 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nanda.idnmengajar.R
 import com.nanda.idnmengajar.data.entity.Notes
+import com.nanda.idnmengajar.data.entity.Priority
 import com.nanda.idnmengajar.databinding.RowItemJudulBinding
+import com.nanda.idnmengajar.utils.OnItemClickCallback
 
-class NotesAdapter(val context : Context) : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
+class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
+
+    private var onItemClickCallback : OnItemClickCallback? = null
+
+    fun onItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
 
     var allNotes = emptyList<Notes>()
 
@@ -24,8 +32,13 @@ class NotesAdapter(val context : Context) : RecyclerView.Adapter<NotesAdapter.No
         holder.binding.apply {
             textViewTitle.text = note.title
             textViewDescription.text = note.description
-        }
 
+            when (note.priority) {
+                Priority.HIGH -> cvNotes.setCardBackgroundColor(cvNotes.context.getColor(R.color.pink))
+                Priority.MEDIUM -> cvNotes.setCardBackgroundColor(cvNotes.context.getColor(R.color.yellow))
+                Priority.LOW -> cvNotes.setCardBackgroundColor(cvNotes.context.getColor(R.color.green))
+            }
+        }
     }
 
     override fun getItemCount(): Int {

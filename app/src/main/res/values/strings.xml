@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">IdnMengajar</string>
     <string name="judul">judul</string>
+
+    <array name="priorities">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </array>
 </resources>
