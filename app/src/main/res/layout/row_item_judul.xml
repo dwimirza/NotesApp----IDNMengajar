@@ -7,9 +7,11 @@
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_notes"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         app:cardElevation="4dp"
         app:cardPreventCornerOverlap="true"
@@ -18,7 +20,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/cream"
             android:orientation="vertical">
 
             <TextView
