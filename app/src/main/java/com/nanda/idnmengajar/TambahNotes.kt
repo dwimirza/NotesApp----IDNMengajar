@@ -11,6 +11,7 @@ import com.nanda.idnmengajar.data.entity.Priority
 import com.nanda.idnmengajar.data.network.NotesViewModel
 import com.nanda.idnmengajar.databinding.ActivityTambahNotesBinding
 
+
 class TambahNotes : AppCompatActivity(R.layout.activity_tambah_notes) {
 
     private val binding: ActivityTambahNotesBinding by viewBinding()

@@ -20,6 +20,7 @@ import com.nanda.idnmengajar.utils.OnItemClickCallback
 class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
 
     private var onItemClickCallback : OnItemClickCallback? = null
+    var itemClick: ((Notes) -> Unit)? = null
 
     fun onItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
@@ -48,10 +49,13 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
                 Priority.MEDIUM -> cvNotes.setCardBackgroundColor(cvNotes.context.getColor(R.color.yellow))
                 Priority.LOW -> cvNotes.setCardBackgroundColor(cvNotes.context.getColor(R.color.green))
             }
-            holder.itemView.setOnClickListener {
-                val intent = Intent(it.context, UpdateNotes::class.java)
-                intent.putExtra(UpdateNotes.EXTRA_DATA, )
-                it.context.startActivity(intent)
+
+            cvNotes.setOnClickListener {
+                itemClick?.invoke(note)
+                Toast.makeText(root.context, "Test", Toast.LENGTH_LONG).show()
+//                val intent = Intent(it.context, UpdateNotes::class.java)
+////                intent.putExtra(UpdateNotes.EXTRA_DATA, )
+//                it.context.startActivity(intent)
 //
 
             }

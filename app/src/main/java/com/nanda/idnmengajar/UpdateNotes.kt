@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nanda.idnmengajar.data.network.NotesViewModel
 import com.nanda.idnmengajar.databinding.ActivityUpdateNotesBinding
-import com.nanda.idnmengajar.utils.OnItemClickCallback
+
 
 class UpdateNotes : AppCompatActivity(R.layout.activity_update_notes) {
 
