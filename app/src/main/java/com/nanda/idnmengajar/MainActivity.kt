@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.nanda.idnmengajar.UpdateNotes.Companion.EXTRA_DATA
 import com.nanda.idnmengajar.data.NotesAdapter
 import com.nanda.idnmengajar.data.entity.Notes
 import com.nanda.idnmengajar.data.network.NotesViewModel
@@ -30,15 +31,19 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 val intent = Intent(this@MainActivity, TambahNotes::class.java)
                 startActivity(intent)
             }
-
+            val mAdapter = NotesAdapter()
             rvJudulNotes.apply {
                 viewModel.getAllData().observe(this@MainActivity){ notes ->
                     notesAdapter.setData(notes)
                 }
                 adapter = notesAdapter
                 layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL )
-                notesAdapter.onItemClickCallback(object : OnItemClickCallback {
-                    override fun onItemClicked() {
+                mAdapter.onItemClickCallback(object : OnItemClickCallback {
+                    override fun onItemClicked(notes: Notes) {
+                        Toast.makeText(this@MainActivity, "a", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@MainActivity, UpdateNotes::class.java)
+                        intent.putExtra(EXTRA_DATA, notes.id)
+                        startActivity(intent)
 //                        intent
                     }
                 })
