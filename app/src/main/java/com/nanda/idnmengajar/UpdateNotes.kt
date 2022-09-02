@@ -2,8 +2,11 @@ package com.nanda.idnmengajar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.nanda.idnmengajar.data.network.NotesViewModel
 import com.nanda.idnmengajar.databinding.ActivityUpdateNotesBinding
+
 
 class UpdateNotes : AppCompatActivity(R.layout.activity_update_notes) {
 
@@ -11,5 +14,13 @@ class UpdateNotes : AppCompatActivity(R.layout.activity_update_notes) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val viewModel = ViewModelProvider(this)[NotesViewModel::class.java]
+
+
+    }
+
+    companion object{
+        const val EXTRA_DATA = "extra_data"
     }
 }

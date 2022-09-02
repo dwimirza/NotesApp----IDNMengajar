@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.nanda.idnmengajar.data.entity.Notes
 
-
-@Database(entities = [Notes::class], version = 1, exportSchema = false )
+@TypeConverters(Converter::class)
+@Database(entities = [Notes::class], version = 2, exportSchema = false )
 abstract class NotesDatabase : RoomDatabase() {
 
     abstract fun NotesDao() : NotesDao
@@ -15,7 +16,6 @@ abstract class NotesDatabase : RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE : NotesDatabase? = null
-
 
         fun getDatabase(context: Context): NotesDatabase {
             return INSTANCE ?: synchronized(this) {
